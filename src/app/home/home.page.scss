@@ -25,3 +25,22 @@
 #container a {
   text-decoration: none;
 }
+
+ion-card-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.5;
+  max-height: 4.5;
+}
+
+ion-button {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+ion-icon {
+  scale: 85%
+}

@@ -1,26 +1,18 @@
-<!-- non-ios toolbar -->
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
+    <ion-title>Search</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- ios toolbar -->
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">
-        Home
-      </ion-title>
+      <ion-title size="large">Search</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <ion-refresher slot="fixed" (ionRefresh)="menuRefreshed($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-
+  <ion-toolbar>
+    <ion-searchbar animated="true" placeholder="Search for Recipe" show-clear-button="focus" inputmode="search" [debounce]="1000" (ionInput)="searchInput($event)"></ion-searchbar>
+  </ion-toolbar>
   <ion-list>
     <ion-card *ngFor="let item of menu">
       <ion-img src="{{item.image}}" width="100%"/>
@@ -39,7 +31,9 @@
       </div>
     </ion-card>
   </ion-list>
-  <ion-infinite-scroll (ionInfinite)="reachedMenuEnd($event)">
-    <ion-infinite-scroll-content loadingText="Creating more recipes..." loadingSpinner="bubbles"></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+  <p id="hint">
+    <br/><br/><br/><br/>
+    It looks quite empty here...<br/>
+    Try searching for something above!
+  </p>
 </ion-content>

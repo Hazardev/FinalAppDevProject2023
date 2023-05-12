@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { HomePage } from './home.page';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { IonicModule } from '@ionic/angular';
+
+import { SearchPageRoutingModule } from './search-routing.module';
+
+import { SearchPage } from './search.page';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -13,12 +15,12 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule,
-    HttpClientModule
+    SearchPageRoutingModule,
+    HttpClientModule,
   ],
-  declarations: [
-    HomePage
-  ]
+  declarations: [SearchPage]
 })
 
-export class HomePageModule {}
+export class SearchPageModule {
+
+}

@@ -1,6 +1,40 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { NavbarComponent } from './navbar/navbar.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: NavbarComponent,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'home',
+      },
+      {
+        path: 'home',
+        loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
+      },
+      {
+        path: 'search',
+        loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
+      },
+      {
+        path: 'favorites',
+        loadChildren: () => import('./favorites/favorites.module').then( m => m.FavoritesPageModule)
+      },
+      {
+        path: 'settings',
+        loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+      },
+    ],
+  },
+
+]
+
+/*
 const routes: Routes = [
   {
     path: 'home',
@@ -12,6 +46,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
 ];
+*/
 
 @NgModule({
   imports: [
@@ -19,4 +54,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
